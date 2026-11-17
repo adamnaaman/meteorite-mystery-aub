@@ -132,23 +132,9 @@ st.markdown("The concentration is not a cosmic preference for Antarctica. Antarc
 st.markdown("**The lesson for analytics:** a dataset can be accurate about what was *recorded* yet misleading about what actually *happened*. Before using a striking map to infer a natural process, ask how observations entered the database.")
 st.info("**Main takeaway:** A map of discoveries is not necessarily a map of where events occur.")
 
-with st.expander("Methodology, definitions and limitations", expanded=False):
-    st.markdown("""
-**Source and snapshot.** NASA Open Data *Meteorite Landings*, based on Meteoritical Society records, primarily a historical snapshot through 2013. This is not the current complete inventory of recovered meteorites.
 
-**Unit of analysis.** One database record (meteorite entry), not one independently measured atmospheric arrival event. Meteorite samples from concentrated collection regions may not reflect independent fall events.
-
-**Cleaning.** Kept all 45,716 unique IDs. Flagged 7,315 missing positions, 6,214 placeholder (0,0) coordinates, and one invalid Earth coordinate. For the map only, omitted all 13,530 records without usable coordinates. We did not assign missing locations to continents. A suspect year (2101) is flagged; discovery year must not be interpreted as fall year for *Found* records.
-
-**Scope.** 'Antarctic latitudes' means latitude ≤ -60°, not a legal political boundary or exact classification of every recovery expedition. The share 68.7% is **22,099 / 32,186 mappable catalog records** only. It is **not** an estimate of Antarctica's true meteorite impact share or per-area fall probability.
-
-**Causality.** The catalog alone cannot quantify search effort or estimate the true global meteorite-fall distribution. Antarctica's preservation and concentration mechanisms are supported by external scientific literature; the data demonstrates recovery concentration, not its precise causal breakdown.
-
-**Additional caveat.** A meteorite recorded as 'Fell' means its fall was witnessed, not that others did not fall. An entry recorded as 'Found' need not have a known fall date. The record counts also are not exposure-normalized.
-""")
 
 st.divider()
 st.markdown("**Data and further reading**")
 st.markdown("[NASA Open Data — Meteorite Landings](https://data.nasa.gov/dataset/meteorite-landings) · [Meteoritical Society database](https://www.lpi.usra.edu/meteor/metbull.php) · [Smithsonian Antarctic Meteorite Program](https://naturalhistory.si.edu/research/mineral-sciences/collections/meteorites/antarctic-meteorites)")
 st.download_button("Download cleaned NASA meteorite records (CSV)",data=(ROOT/"meteorites_cleaned.csv").read_bytes(),file_name="meteorites_cleaned.csv",mime="text/csv")
-st.caption("Built for an AUB MSBA data-storytelling assignment · Data as recorded in the historical NASA snapshot · Exploratory and educational, not a prediction of future meteorite falls.")
